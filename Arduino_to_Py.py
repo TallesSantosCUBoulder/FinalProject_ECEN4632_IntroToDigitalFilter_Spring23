@@ -27,7 +27,7 @@ def animate(i, data, ser):
 
 data = []
 fig, ax = plt.subplots()
-ser = serial.Serial('COM4', 9600, timeout=1)
+ser = serial.Serial('COM10', 9600, timeout=1)
 ser.flush()
 
 ani = animation.FuncAnimation(fig, animate, fargs=(data, ser), interval = 1, cache_frame_data=False)
