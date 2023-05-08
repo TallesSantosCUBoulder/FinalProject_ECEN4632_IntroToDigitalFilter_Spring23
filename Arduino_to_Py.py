@@ -25,10 +25,6 @@ def animate(i, data, ser):
     ax.set_ylabel('Amplitude')
 
 
-data = []
-fig, ax = plt.subplots()
-ser = serial.Serial('COM10', 9600, timeout=1)
-ser.flush()
 
 ani = animation.FuncAnimation(fig, animate, fargs=(data, ser), interval = 1, cache_frame_data=False)
 
