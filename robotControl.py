@@ -9,16 +9,16 @@ while(1):
         print(hold)
         buf = str(-1)
         print(buf)
-        ser.write(buf.encode())
+        ser.write(buf.encode()) # Send -1 to turn left on robot
     elif(hold.lower() == "right"):
         print(hold)
         buf = str(1)
         print(buf)
-        ser.write(buf.encode())
+        ser.write(buf.encode()) # Send 1 to turn right on robot
     else:
         print(hold)
         buf = str(0)
         print(buf)
-        ser.write(buf.encode())
+        ser.write(buf.encode()) # Send 0 to stop robot
 
 ser.close

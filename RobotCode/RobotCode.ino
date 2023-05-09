@@ -19,9 +19,6 @@ void loop() {
         delay(1000);
         motors.brake();
         break;
-      case 0:
-        motors.brake();
-        break;
       case 1:
         motors.leftMotor(-60);
         motors.rightMotor(-60);
