@@ -66,7 +66,7 @@ fig.add_subplot(rows, columns, 2)
 # showing image
 plt.imshow(Image2)
 plt.axis('off')
-plt.title("Unknow photo")
+plt.title("Unknown photo")
 
 
 # check if one of the faces is the reference

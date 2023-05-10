@@ -1,6 +1,13 @@
 {
     "cSpell.words": [
+        "autolayout",
         "fargs",
+        "figsize",
+        "imshow",
+        "linewidth",
+        "mpimg",
+        "subdir",
+        "suptitle",
         "xlabel",
         "xlim",
         "ylabel",
