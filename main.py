@@ -1,23 +1,34 @@
-# Program to indentify faces using python library and give coordinates (right or left)
+# Program to identify faces using python library and give coordinates (right or left)
 
 
 ## includes
 import face_recognition
 import numpy as np
+import cv2
 from matplotlib import pyplot as plt
-from matplotlib import image as mpimg
-import os
+from PIL import Image
 
 
 # load the reference picture
-picture_of_me = face_recognition.load_image_file("Garrett_Image.jpg")
+picture_of_me = face_recognition.load_image_file("Diego_Image.jpeg")
 my_face_encoding = face_recognition.face_encodings(picture_of_me)[0] # my_face_encoding now contains a universal 'encoding' of my facial features that can be compared to any other picture of a face!
 face_landmarks_list_picture_of_me = face_recognition.face_landmarks(picture_of_me)
 
 
 
 # take the picture using the shell script
-os.system("./TakePicture.sh")
+#os.system("./TakePicture.sh") Method 1
+# Method 2
+cam_port = 0
+cam = cv2.VideoCapture(cam_port)
+result, image = cam.read()
+if result:
+    cv2.imwrite("CurrentPicture.jpg", image)
+else:
+    print("No image detected. Pleas try again!")
+
+cam.release()
+
 
 # load the picture
 unknown_picture = face_recognition.load_image_file("CurrentPicture.jpg")
@@ -32,7 +43,7 @@ picture_of_me_location = face_recognition.face_locations(unknown_picture)
 # compare faces
 n_people = np.size(unknown_face_encoding,0);
 
-mean_x = 0 ;
+mean_x = 0
 
 if unknown_face_encoding:
 

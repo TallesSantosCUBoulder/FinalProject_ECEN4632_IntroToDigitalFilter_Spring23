@@ -3,6 +3,8 @@
         "autolayout",
         "fargs",
         "figsize",
+        "fliplr",
+        "imread",
         "imshow",
         "imwrite",
         "linewidth",

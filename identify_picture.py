@@ -3,15 +3,18 @@
 
 ## includes
 import face_recognition
-import cv2
 import numpy as np
+import cv2
 from matplotlib import pyplot as plt
 from matplotlib import image as mpimg
 
 
 
 # load pictures
-picture_of_me = face_recognition.load_image_file("Picture_Barack_Obama.png")
+picture_of_me = plt.imread("Diego_Image.jpeg")
+
+plt.imshow(picture_of_me)
+plt.show()
 #picture_of_me = face_recognition.load_image_file("Picture_Michelle_Obama.png")
 my_face_encoding = face_recognition.face_encodings(picture_of_me)[0] # my_face_encoding now contains a universal 'encoding' of my facial features that can be compared to any other picture of a face!
 
@@ -21,7 +24,7 @@ picture_of_me_location = face_recognition.face_locations(picture_of_me)
 
 # examples
 # unknown_picture = face_recognition.load_image_file("Picture_Michelle_Obama.png")
-unknown_picture = face_recognition.load_image_file("Picture_ObamaFamily.png")
+unknown_picture = face_recognition.load_image_file("FinalProjectFigure.jpg")
 # unknown_picture = face_recognition.load_image_file("Picture_Barack_Obama_02.png")
 
 
