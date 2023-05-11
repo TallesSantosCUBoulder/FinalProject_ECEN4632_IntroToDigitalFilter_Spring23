@@ -4,6 +4,7 @@
         "fargs",
         "figsize",
         "imshow",
+        "imwrite",
         "linewidth",
         "mpimg",
         "subdir",
