@@ -10,12 +10,12 @@ import pickle
 
 # load the reference picture
 picture_of_me = face_recognition.load_image_file("Diego_Image.jpeg")
-datafile = open("cachedData.dat", 'rb')
+datafile = open("encodedData.dat", 'rb')
+datafile2 = open("landmarkData.dat", 'rb')
 my_face_encoding = pickle.load(datafile)  # my_face_encoding now contains a universal 'encoding' of my facial features that can be compared to any other picture of a face!
+face_landmarks_list_picture_of_me = pickle.load(datafile2)
 datafile.close()
-face_landmarks_list_picture_of_me = face_recognition.face_landmarks(picture_of_me)
-
-
+datafile2.close()
 
 # take the picture using the shell script
 #os.system("./TakePicture.sh") Method 1
