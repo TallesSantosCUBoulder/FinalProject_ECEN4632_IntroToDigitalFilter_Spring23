@@ -8,7 +8,11 @@ from matplotlib import pyplot as plt
 from matplotlib import image as mpimg
 import os
 import time
+import serial
 
+#establish serial connection
+ser = serial.Serial('COM5', 9600, timeout=1)
+ser.flush()
 
 # load the reference picture
 picture_of_me = face_recognition.load_image_file("Garrett_Image.jpg")
@@ -19,7 +23,7 @@ face_landmarks_list_picture_of_me = face_recognition.face_landmarks(picture_of_m
 count = 0
 while count<10:
 
-    count = count + 1 ;
+    count = count + 1
 
     # take the picture using the shell script
     os.system("./TakePicture.sh")
@@ -35,9 +39,9 @@ while count<10:
     picture_of_me_location = face_recognition.face_locations(unknown_picture)
 
     # compare faces
-    n_people = np.size(unknown_face_encoding,0);
+    n_people = np.size(unknown_face_encoding,0)
 
-    mean_x = 0 ;
+    mean_x = 0
 
     if unknown_face_encoding:
 
@@ -87,14 +91,20 @@ while count<10:
     output_int = 0
     if ( mean_x < np.size(unknown_picture,1)/2 ):
         output_int = -1
+        buf = str(output_int)
         str_go_to = "robot: go to left"
+        ser.write(buf.encode()) # Send -1 to turn left on robot
     else:
         output_int = 1
+        buf = str(output_int)
         str_go_to = "robot: go to right"
+        ser.write(buf.encode()) # Send 1 to turn right on robot
 
-    if( mean_x==0 ):
+    if( mean_x == 0 ):
         output_int = 0
+        buf = str(output_int)
         str_go_to = "robot: no actions"
+        ser.write(buf.encode()) # Send 0 to stop robot
 
     print("\n\n\n")
     print(str_aux)
@@ -106,6 +116,3 @@ while count<10:
     plt.pause(0.01)
 
     time.sleep(2) # in secs
-
-
-

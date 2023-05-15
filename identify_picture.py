@@ -4,14 +4,13 @@
 ## includes
 import face_recognition
 import numpy as np
-import cv2
 from matplotlib import pyplot as plt
 from matplotlib import image as mpimg
 
 
 
 # load pictures
-picture_of_me = plt.imread("Diego_Image.jpeg")
+picture_of_me = plt.imread("Garrett_Image.jpg")
 
 plt.imshow(picture_of_me)
 plt.show()
@@ -98,12 +97,12 @@ unknown_face_encoding[0]
 # # # # # # ## plot the face landmarks
 # # # # # #
 # # # # # #
-# # # # # # plt.rcParams["figure.figsize"] = [7.00, 3.50]
-# # # # # # plt.rcParams["figure.autolayout"] = True
-# # # # # # im = picture_of_me
-# # # # # #
-# # # # # # fig, ax = plt.subplots()
-# # # # # # im = ax.imshow(im)
+plt.rcParams["figure.figsize"] = [7.00, 3.50]
+plt.rcParams["figure.autolayout"] = True
+im = picture_of_me
+
+fig, ax = plt.subplots()
+im = ax.imshow(im)
 # # # # # #
 # # # # # # #x = np.array(range(500))
 # # # # # # #ax.plot(x, x, ls='dotted', linewidth=2, color='red')
@@ -128,19 +127,19 @@ unknown_face_encoding[0]
 # # # # # # #
 # # # # # # # x = np.array( face_landmarks_list[0]['left_eye'] )
 # # # # # # # ax.plot(x[:,0], x[:,1], ls='dotted', linewidth=2, color='magenta')
-# # # # # #
-# # # # # # x_center_face = np.array( picture_of_me_location )
-# # # # # # ax.plot(x_center_face[0,1], x_center_face[0,0], marker='v', color="pink")
-# # # # # # ax.plot(x_center_face[0,1], x_center_face[0,2], marker='v', color="pink")
-# # # # # # ax.plot(x_center_face[0,3], x_center_face[0,0], marker='v', color="pink")
-# # # # # # ax.plot(x_center_face[0,3], x_center_face[0,2], marker='v', color="pink")
-# # # # # #
-# # # # # # x_center_x = np.round( np.mean( [x_center_face[0,1] , x_center_face[0,3]] ))
-# # # # # # x_center_y = np.round( np.mean( [x_center_face[0,0] , x_center_face[0,2]] ))
-# # # # # # ax.plot(x_center_x, x_center_y, marker='v', color="red")
-# # # # # #
-# # # # # #
-# # # # # # plt.show()
+
+x_center_face = np.array( picture_of_me_location )
+ax.plot(x_center_face[0,1], x_center_face[0,0], marker='v', color="pink")
+ax.plot(x_center_face[0,1], x_center_face[0,2], marker='v', color="pink")
+ax.plot(x_center_face[0,3], x_center_face[0,0], marker='v', color="pink")
+ax.plot(x_center_face[0,3], x_center_face[0,2], marker='v', color="pink")
+
+x_center_x = np.round( np.mean( [x_center_face[0,1] , x_center_face[0,3]] ))
+x_center_y = np.round( np.mean( [x_center_face[0,0] , x_center_face[0,2]] ))
+ax.plot(x_center_x, x_center_y, marker='v', color="red")
+
+
+plt.show()
 
 
 
