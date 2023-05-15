@@ -1,4 +1,4 @@
-# Program to indentify faces using python library and give coordinates (right or left)
+# Program to identify faces using python library and give coordinates (right or left)
 
 
 ## includes
@@ -116,3 +116,5 @@ while count<10:
     plt.pause(0.01)
 
     time.sleep(2) # in secs
+    
+ser.close()

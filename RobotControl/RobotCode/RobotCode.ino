@@ -16,14 +16,10 @@ void loop() {
       case -1:
         motors.leftMotor(60);
         motors.rightMotor(60);
-        delay(1000);
-        motors.brake();
         break;
       case 1:
         motors.leftMotor(-60);
         motors.rightMotor(-60);
-        delay(1000);
-        motors.brake();
         break;
       default:
         motors.brake();
